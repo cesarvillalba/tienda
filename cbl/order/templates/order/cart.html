@@ -1,0 +1,41 @@
+{% extends 'home/base.html'%}
+
+
+{%block content%}
+  <h3 class="text-center mt-5 mb-5">Tu carrito</h3>
+
+    {%if shopcart%}
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Imagen</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio total</th>
+              <th scope="col">Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%for rs in shopcart%}
+              <tr>
+                <th scope="row">{{ rs.product.title }}</th>
+                <td class=""><img width=200px src="{{ rs.product.image.url }}" class="img-fluid"></td>
+                <td>{{ rs.product.price }} рesos.</td>
+                <td>{{ rs.quantity }} p.</td>
+                <td>{{ rs.amount }} рesos.</td>
+                <td class="text-right"><a href="/order/deletefromcart/{{ rs.id }}" onclick="return confirm('Borrar ! Está seguro?')" ><button class="btn btn-danger">Borrar del carrito</button></a></td>
+              </tr>
+          </tbody>
+          {%endfor%}
+          <tr>
+            <td colspan="2"></td>
+            <td>Total: </td>
+            <td></td>
+            <td><strong>{{total}} рesos.</strong></td>
+            <td><a href="/order/orderproduct"><button class="btn btn-primary">Ir a la caja</button></a></td>
+          </tr>
+        </table>
+
+    {%endif%}
+{%endblock%}

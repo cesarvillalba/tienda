@@ -1,0 +1,43 @@
+{%extends 'home/base.html'  %}
+{%block content%}
+
+<div class="row mt-5">
+
+  {%for rs in products_cold%}
+    <div class="col-lg-4 col-md-6 mb-2">
+      <div class="card h-100">
+        <a href="/product/{{rs.id}}/{{rs.slug}}"><img class="card-img-top" style="" width=50px src="{{rs.image.url}}" alt="prod"></a>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="/product/{{rs.id}}/{{rs.slug}}">{{rs.title}}</a>
+          </h4>
+          <h5>{{rs.price}} рesos.</h5>
+          <a href="/order/addtoshopcart/{{rs.id}}"><button class="btn btn-danger">Agregar al carrito de compras</button></a>
+        </div>
+      </div>
+    </div>
+  {%endfor%}
+  
+</div>
+  <!-- /.row -->
+  <div class="row mt-3">
+
+    
+      <div class="col-lg-6 col-md-6 mb-2">
+        <ul>
+          <h3> MÁS PRODUCTOS: </h3>
+          {%for rs in products_cold2%}
+          <li>
+            
+              <a href="/product/{{rs.id}}/{{rs.slug}}">{{rs.title}}: {{rs.description}} </a>
+          </li>          
+          {%endfor%}
+         </ul> 
+
+      </div>
+      
+    
+</div>
+
+{%endblock%}
+  

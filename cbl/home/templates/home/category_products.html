@@ -1,0 +1,26 @@
+{% extends 'home/base.html'%}
+{%block content%}
+
+<div class="row mt-3">
+  {%for rs in products%}
+    <div class="col-lg-4 col-md-6 mb-2">
+      <div class="card h-100">
+        <a href="/product/{{rs.id}}/{{rs.slug}}"><img class="card-img-top" style="" width=50px src="{{rs.image.url}}" alt=""></a>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="/product/{{rs.id}}/{{rs.slug}}">{{rs.title}}</a>
+          </h4>
+          <h5>{{rs.price}} рesos.</h5>
+
+          <a href="/order/addtoshopcart/{{rs.id}}"><button class="btn btn-danger">Añadir al carrito</button></a>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+  </div>
+
+
+
+
+
+{%endblock%}
