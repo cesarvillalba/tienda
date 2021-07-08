@@ -1,0 +1,1 @@
+Proyecto tienda con Django y bootstrap, para probar y comprender las relaciones entre modelos, vistas y plantillas, comencé clonando un repositorio y lo fui modificando para entenderlo y adaptarlo a mi proyecto
