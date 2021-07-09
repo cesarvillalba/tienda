@@ -44,6 +44,15 @@ def product_datail(request,id,slug):
     context={'product':product,'category':category}
     return render(request,'home/product_datail.html', context)
 
+def acerca_de(request):
+    product=Product.objects.all()
+    category=Category.objects.all()
+    context={'category':category,'product':product}
+    return render(request, "home/acerca_de.html", context)
 
-
+def contacto(request):
+    product=Product.objects.all()
+    category=Category.objects.all()
+    context={'category':category,'product':product}
+    return render(request, "home/contacto.html", context)
 
